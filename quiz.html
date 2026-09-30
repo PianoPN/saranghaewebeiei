@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คำถามความทรงจำของเรา</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+  <main class="page-container">
+    <div class="card quiz-box">
+      <h2>📝 คำถามความทรงจำของเรา</h2>
+      <p class="subtitle">ตอบคำถามเล็กๆ น้อยๆ ก่อนไปดูสิ่งที่ฉันเตรียมไว้ให้นะ</p>
+      
+      <form id="quiz-form">
+        <div class="form-group">
+          <label for="q-partner-name">1. คุณชื่ออะไรคะ/ครับ?</label>
+          <input type="text" id="q-partner-name" required placeholder="ชื่อของคุณ..." />
+        </div>
+        
+        <div class="form-group">
+          <label for="q-my-name">2. แล้วแฟนของคุณชื่ออะไรเอ่ย?</label>
+          <input type="text" id="q-my-name" required placeholder="ชื่อแฟนของคุณ..." />
+        </div>
+        
+        <div class="form-group">
+          <label for="q-when-like">3. เริ่มชอบแฟนคนนี้ตั้งแต่ตอนไหน?</label>
+          <textarea id="q-when-like" rows="3" required placeholder="เล่าให้ฟังหน่อยสิ..."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="q-why-like">4. ทำไมถึงชอบและรักแฟนคนนี้?</label>
+          <textarea id="q-why-like" rows="3" required placeholder="บอกความในใจหน่อยนะ..."></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-full">ส่งคำตอบ & ไปต่อ ✨</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- นำเข้า Firebase และ JS สำหรับส่งคำตอบ -->
+  <script type="module" src="quiz.js"></script>
+</body>
+</html>

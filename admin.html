@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - คำตอบจากแฟน</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <main class="page-container">
+    <div class="card admin-box">
+      <h2>👑 คำตอบจากแฟนของคุณ</h2>
+      <p>รวมทุกคำตอบที่แฟนคุณตอบไว้ในหน้าแบบสอบถาม</p>
+      
+      <!-- พื้นที่สำหรับแสดงรายการคำตอบจาก Database -->
+      <div id="answers-list" class="answers-container">
+        <p class="loading-text">กำลังโหลดข้อมูลคำตอบ...</p>
+      </div>
+      
+      <div class="text-center">
+        <a href="landing.html" class="btn btn-secondary">กลับหน้าแรก</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- นำเข้า Firebase และ JS สำหรับดึงข้อมูลคำตอบ -->
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

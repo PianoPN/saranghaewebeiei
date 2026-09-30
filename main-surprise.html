@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Happy Anniversary 💖</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="main-surprise.css">
+</head>
+<body>
+
+  <!-- 🎞️ โครงสร้างม้วนฟิล์มขนาบซ้าย-ขวา -->
+  <div class="film-container">
+    
+    <!-- 💖 แถบฟิล์มฝั่งซ้าย (เลื่อนขึ้นช้าๆ) -->
+    <aside class="film-strip film-left">
+      <div class="film-track scroll-up">
+        <!-- ชุดรูปที่ 1-9 (ชุดแรก) -->
+        <div class="film-frame"><img src="images/photo1.jpg" alt="Photo 1"></div>
+        <div class="film-frame"><img src="images/photo2.jpg" alt="Photo 2"></div>
+        <div class="film-frame"><img src="images/photo3.jpg" alt="Photo 3"></div>
+        <div class="film-frame"><img src="images/photo4.jpg" alt="Photo 4"></div>
+        <div class="film-frame"><img src="images/photo5.jpg" alt="Photo 5"></div>
+        <div class="film-frame"><img src="images/photo6.jpg" alt="Photo 6"></div>
+        <div class="film-frame"><img src="images/photo7.jpg" alt="Photo 7"></div>
+        <div class="film-frame"><img src="images/photo8.jpg" alt="Photo 8"></div>
+        <div class="film-frame"><img src="images/photo9.jpg" alt="Photo 9"></div>
+        
+        <!-- ซ้ำชุดรูป 1-9 อีกครั้งเพื่อให้เลื่อนวนลูปได้เนียนไม่มีสะดุด -->
+        <div class="film-frame"><img src="images/photo1.jpg" alt="Photo 1"></div>
+        <div class="film-frame"><img src="images/photo2.jpg" alt="Photo 2"></div>
+        <div class="film-frame"><img src="images/photo3.jpg" alt="Photo 3"></div>
+        <div class="film-frame"><img src="images/photo4.jpg" alt="Photo 4"></div>
+        <div class="film-frame"><img src="images/photo5.jpg" alt="Photo 5"></div>
+        <div class="film-frame"><img src="images/photo6.jpg" alt="Photo 6"></div>
+        <div class="film-frame"><img src="images/photo7.jpg" alt="Photo 7"></div>
+        <div class="film-frame"><img src="images/photo8.jpg" alt="Photo 8"></div>
+        <div class="film-frame"><img src="images/photo9.jpg" alt="Photo 9"></div>
+      </div>
+    </aside>
+
+    <!-- 📦 เนื้อหาหลักตรงกลาง (เหมือนเดิม) -->
+    <main class="page-container">
+      <div class="main-content">
+        
+        <!-- 1. ตัวนับเวลาจริง -->
+        <section class="card timer-card float-anim-slow">
+          <h2>⏳ เราคบกันมานานเท่าไหร่แล้วนะ?</h2>
+          <div id="love-counter" class="counter-display">
+            <div class="time-unit"><span id="days">0</span>วัน</div>
+            <div class="time-unit"><span id="hours">0</span>ชม.</div>
+            <div class="time-unit"><span id="minutes">0</span>นาที</div>
+            <div class="time-unit"><span id="seconds">0</span>วิ</div>
+          </div>
+        </section>
+
+        <!-- 2. ปุ่มเปิดจดหมายซ่อนแอบ -->
+        <section class="card letters-card">
+          <h3>✉️ จดหมายซ่อนแอบถึงเธอ</h3>
+          <p>คลิกเปิดซองจดหมายเพื่ออ่านข้อความลับสิ</p>
+          
+          <div class="envelope-grid">
+            <button class="envelope-btn" onclick="openLetter(1)">💌 ฉบับที่ 1</button>
+            <button class="envelope-btn" onclick="openLetter(2)">💌 ฉบับที่ 2</button>
+            <button class="envelope-btn" onclick="openLetter(3)">💌 ฉบับที่ 3</button>
+          </div>
+        </section>
+
+        <!-- 3. กล่องเขียนข้อความความในใจ -->
+        <section class="card note-card margin-top-20">
+          <h3>📝 มีอะไรอยากบอกเค้าไหม?</h3>
+          <p>เขียนข้อความฝากไว้ตรงนี้ได้เลยนะ ข้อมูลจะถูกบันทึกไม่หายไปไหนแน่นอน</p>
+          <textarea id="note-input" rows="3" placeholder="พิมพ์ข้อความในใจที่นี่..."></textarea>
+          <button id="btn-save-note" class="btn btn-primary margin-top-10">บันทึกความรู้สึก 💖</button>
+          
+          <div id="notes-display" class="notes-display-list"></div>
+        </section>
+
+        <div class="text-center margin-top-20">
+          <a href="landing.html" class="btn btn-secondary">กลับหน้าแรก</a>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- 💖 แถบฟิล์มฝั่งขวา (เลื่อนลงช้าๆ สลับทิศทางกับฝั่งซ้าย) -->
+    <aside class="film-strip film-right">
+      <div class="film-track scroll-down">
+        <!-- ชุดรูปที่ 1-9 (ชุดแรก) -->
+        <div class="film-frame"><img src="images/photo1.jpg" alt="Photo 1"></div>
+        <div class="film-frame"><img src="images/photo2.jpg" alt="Photo 2"></div>
+        <div class="film-frame"><img src="images/photo3.jpg" alt="Photo 3"></div>
+        <div class="film-frame"><img src="images/photo4.jpg" alt="Photo 4"></div>
+        <div class="film-frame"><img src="images/photo5.jpg" alt="Photo 5"></div>
+        <div class="film-frame"><img src="images/photo6.jpg" alt="Photo 6"></div>
+        <div class="film-frame"><img src="images/photo7.jpg" alt="Photo 7"></div>
+        <div class="film-frame"><img src="images/photo8.jpg" alt="Photo 8"></div>
+        <div class="film-frame"><img src="images/photo9.jpg" alt="Photo 9"></div>
+        
+        <!-- ซ้ำชุดรูป 1-9 อีกครั้ง -->
+        <div class="film-frame"><img src="images/photo1.jpg" alt="Photo 1"></div>
+        <div class="film-frame"><img src="images/photo2.jpg" alt="Photo 2"></div>
+        <div class="film-frame"><img src="images/photo3.jpg" alt="Photo 3"></div>
+        <div class="film-frame"><img src="images/photo4.jpg" alt="Photo 4"></div>
+        <div class="film-frame"><img src="images/photo5.jpg" alt="Photo 5"></div>
+        <div class="film-frame"><img src="images/photo6.jpg" alt="Photo 6"></div>
+        <div class="film-frame"><img src="images/photo7.jpg" alt="Photo 7"></div>
+        <div class="film-frame"><img src="images/photo8.jpg" alt="Photo 8"></div>
+        <div class="film-frame"><img src="images/photo9.jpg" alt="Photo 9"></div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Pop-up จดหมาย -->
+  <div id="letter-modal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="sparkles-container">✨⭐✨🌟✨</div>
+      <div class="envelope-animation-box">
+        <div class="animated-envelope">💌</div>
+      </div>
+      <div id="letter-text" class="letter-content-text"></div>
+      <p class="modal-tip">(แตะที่ว่างด้านนอกเพื่อปิดจดหมาย ✨)</p>
+    </div>
+  </div>
+
+  <script type="module" src="main-surprise.js"></script>
+</body>
+</html>

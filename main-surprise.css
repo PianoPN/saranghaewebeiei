@@ -1,0 +1,264 @@
+/* การนับเวลา */
+.counter-display {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.time-unit {
+  background: #ffe5ec;
+  padding: 10px 14px;
+  border-radius: 16px;
+  color: #800f2f;
+  font-weight: 500;
+  min-width: 65px;
+}
+
+.time-unit span {
+  display: block;
+  font-size: 1.6rem;
+  color: #ff4d6d;
+  font-weight: 600;
+}
+
+/* จดหมาย Grid */
+.envelope-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.envelope-btn {
+  background: #fff0f3;
+  border: 1.5px dashed #ffb3c1;
+  padding: 12px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #800f2f;
+  transition: all 0.2s ease;
+}
+
+.envelope-btn:hover {
+  background: #ffe5ec;
+  transform: translateY(-3px);
+}
+
+/* Modal จดหมาย และ Overlay */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(89, 13, 34, 0.45);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-card {
+  background: #ffffff;
+  padding: 30px 24px;
+  border-radius: 24px;
+  width: 85%;
+  max-width: 380px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: openEnvelope 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sparkles-container {
+  font-size: 1.4rem;
+  animation: sparkleTwinkle 1.2s infinite alternate;
+}
+
+.animated-envelope {
+  font-size: 3.5rem;
+  margin: 10px 0;
+  animation: pulseLetter 1.5s infinite;
+}
+
+.letter-content-text {
+  font-size: 1.05rem;
+  color: #590d22;
+  line-height: 1.6;
+  margin: 15px 0;
+  background: #fff0f3;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid #ffccd5;
+}
+
+.modal-tip {
+  font-size: 0.8rem;
+  color: #a33352;
+  margin-top: 8px;
+}
+
+/* Animations */
+@keyframes openEnvelope {
+  0% { transform: scale(0.3) translateY(50px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes sparkleTwinkle {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Note Storage UI */
+.note-card textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid #ffccd5;
+  margin-top: 10px;
+  font-family: inherit;
+}
+
+.notes-display-list {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note-item {
+  background: #fff0f3;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  text-align: left;
+  border-left: 3px solid #ff4d6d;
+}
+/* ==========================================
+   📸 ปรับขนาดม้วนฟิล์มใหญ่ขึ้น (Large Film Strip)
+   ========================================== */
+
+/* 1. ปรับความกว้างแถบฟิล์มหลัก (ขยายจาก 140px เป็น 190px) */
+.film-strip {
+  width: 190px;             /* 👈 ขยายความกว้างแถบฟิล์ม */
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  overflow: hidden;
+  background: #ffccd5;
+  border-left: 6px solid #ffffff;
+  border-right: 6px solid #ffffff;
+  box-shadow: 0 0 25px rgba(255, 77, 109, 0.25);
+}
+
+.film-left { left: 20px; }
+.film-right { right: 20px; }
+
+/* 2. ปรับขนาดรูฟิล์มสีชมพู-ขาว ให้ใหญ่ขึ้นตามขนาดฟิล์ม */
+.film-strip::before, .film-strip::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 15px;              /* 👈 ขยายความกว้างรูฟิล์ม */
+  height: 100%;
+  z-index: 10;
+  background: repeating-linear-gradient(
+    to bottom,
+    #ffffff,
+    #ffffff 16px,          /* 👈 ขยายความยาวของรูฟิล์ม */
+    transparent 16px,
+    transparent 28px
+  );
+}
+.film-strip::before { left: 6px; }
+.film-strip::after { right: 6px; }
+
+/* 3. ปรับระยะห่างระหว่างรูปภาพในรางเลื่อน */
+.film-track {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;                /* 👈 เพิ่มระยะห่างระหว่างรูป */
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* 4. ปรับขนาดกรอบรูปภาพให้ใหญ่ขึ้นเต็มตาสวยงาม */
+.film-frame {
+  width: 140px;             /* 👈 ขยายความกว้างรูป (เดิม 100px) */
+  height: 165px;            /* 👈 ขยายความสูงรูป (เดิม 120px) */
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 8px;             /* 👈 เพิ่มขอบสีขาวรอบรูป */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(89, 13, 34, 0.12);
+  box-sizing: border-box;
+}
+
+.film-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  background-color: #ffe5ec;
+}
+
+/* 5. ปรับความเร็วการสไลด์ให้สมดุลกับรูปที่ใหญ่ขึ้น */
+.scroll-up {
+  animation: filmScrollUp 35s linear infinite;  /* ปรับเวลาเป็น 35s เพื่อให้นุ่มนวลสบายตา */
+}
+
+.scroll-down {
+  animation: filmScrollDown 35s linear infinite;
+}
+
+/* ป้องกันแถบฟิล์มซ้อนทับการ์ดเนื้อหาตรงกลางบนจอโน้ตบุ๊กเล็ก */
+@media (max-width: 1024px) {
+  .film-strip {
+    width: 150px;           /* ปรับขนาดย่อลงเล็กน้อยสำหรับหน้าจอกลางๆ */
+  }
+  .film-frame {
+    width: 110px;
+    height: 135px;
+  }
+}
+
+@media (max-width: 820px) {
+  .film-strip {
+    display: none;          /* ซ่อนบนมือถือเพื่อไม่ให้บังเนื้อหา */
+  }
+}
+
+/* 🔄 Animation สไลด์รูปภาพวนลูปแบบต่อเนื่องไร้รอยต่อ */
+.scroll-up {
+  animation: filmScrollUp 30s linear infinite;
+}
+
+.scroll-down {
+  animation: filmScrollDown 30s linear infinite;
+}
+
+@keyframes filmScrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes filmScrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+/* ซ่อนแถบฟิล์มบนหน้าจอมือถือขนาดเล็ก เพื่อไม่ให้บังการ์ดเนื้อหา */
+@media (max-width: 820px) {
+  .film-strip {
+    display: none;
+  }
+}

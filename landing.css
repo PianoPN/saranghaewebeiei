@@ -1,0 +1,51 @@
+/* การจัดเลย์เอาต์หน้า Landing */
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ปุ่มมูฟขึ้นลงนุ่มนวลตามที่คุณต้องการ */
+.float-anim-slow {
+  animation: floatUpDown 3.5s ease-in-out infinite;
+}
+
+.float-anim-medium {
+  animation: floatUpDown 2.8s ease-in-out infinite 0.5s;
+}
+
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff85a1, #f72585);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(247, 37, 133, 0.25);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary {
+  background: #fff0f5;
+  color: #d81159;
+  border: 2px solid #ffb3c1;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+}

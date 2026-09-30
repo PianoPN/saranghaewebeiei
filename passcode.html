@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ป้อนรหัสผ่านความทรงจำ</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="passcode.css">
+</head>
+<body>
+
+  <main class="page-container">
+    <div class="card floating-box text-center" id="passcode-card">
+      <div class="icon-header">🔒</div>
+      <h2>ป้อนรหัสผ่านความทรงจำ</h2>
+      <p>ใส่วันครบรอบของเราเพื่อเปิดกล่องความทรงจำ (เช่น 1402)</p>
+      
+      <div class="passcode-input-group">
+        <input type="password" id="passcode-input" maxlength="8" placeholder="DDMM" autocomplete="off" />
+        <button id="btn-submit-passcode" class="btn btn-primary">ยืนยัน 💕</button>
+      </div>
+      
+      <!-- ข้อความแสดงเมื่อกรอกรหัสผิด -->
+      <div id="passcode-error" class="error-msg"></div>
+    </div>
+  </main>
+
+  <script src="passcode.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+.answers-container {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.answer-card {
+  background: #fff0f3;
+  border-left: 4px solid #ff4d6d;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.answer-card h4 {
+  color: #800f2f;
+  margin-bottom: 5px;
+}

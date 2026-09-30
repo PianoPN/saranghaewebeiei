@@ -1,0 +1,180 @@
+/* ==========================================
+   common.css - Minimal Pink Theme & Animations
+   ========================================== */
+
+/* Import Google Font (Kanit) เพื่อความมินิมอลและอ่านง่าย */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+
+/* 🎨 Palette สีชมพูเล่นเฉดหลายระดับ (Pink Gradient Palette) */
+:root {
+  --pink-bg-light: #fff0f3;       /* ชมพูอ่อนมากสำหรับพื้นหลังหลัก */
+  --pink-bg-soft: #ffe5ec;        /* ชมพูพาสเทลสำหรับรองพื้น */
+  --pink-card-bg: #ffffff;        /* สีการ์ดสีขาวตัดชมพู */
+  --pink-accent-light: #ffccd5;   /* ชมพูเฉดอ่อนสำหรับเส้นขอบ/ปุ่มรอง */
+  --pink-accent-medium: #ffb3c1;  /* ชมพูเฉดกลาง */
+  --pink-main: #ff4d6d;           /* ชมพูสดใสสำหรับปุ่มหลัก */
+  --pink-main-hover: #ff758f;     /* ชมพูยาม Hover ปุ่ม */
+  --pink-dark-text: #590d22;      /* สีข้อความหัวข้อชมพูเข้ม */
+  --pink-subtext: #800f2f;        /* สีข้อความย่อย */
+  
+  --shadow-soft: 0 10px 30px rgba(255, 77, 109, 0.12);
+  --shadow-hover: 0 15px 35px rgba(255, 77, 109, 0.22);
+  --radius-card: 24px;
+  --radius-btn: 30px;
+}
+
+/* 1. Reset พื้นฐานทั้งหมด */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--pink-bg-light) 0%, var(--pink-bg-soft) 100%);
+  color: var(--pink-dark-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* 2. Container การจัดวางหน้า */
+.page-container {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* 3. การ์ดมินิมอล (Minimal Card Component) */
+.card {
+  background: var(--pink-card-bg);
+  border-radius: var(--radius-card);
+  padding: 32px 24px;
+  width: 100%;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 204, 213, 0.5);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* 4. หัวข้อและข้อความ */
+h1, h2, h3 {
+  color: var(--pink-dark-text);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.2rem; }
+
+p, .subtitle {
+  color: var(--pink-subtext);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* 5. ปุ่มสไตล์มินิมอลเฉดชมพู (Button Styling) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: var(--radius-btn);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  width: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff758f 0%, var(--pink-main) 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--pink-main) 0%, #c9184a 100%);
+  box-shadow: 0 12px 25px rgba(255, 77, 109, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: var(--pink-bg-light);
+  color: var(--pink-subtext);
+  border: 1.5px solid var(--pink-accent-medium);
+}
+
+.btn-secondary:hover {
+  background: var(--pink-accent-light);
+  color: var(--pink-dark-text);
+}
+
+/* 6. ✨ ลูกเล่นกล่อง/ปุ่ม มูฟขึ้น-ลง ช้าๆ นุ่มนวล (Floating Animations) */
+.float-anim-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.float-anim-medium {
+  animation: floatSlow 3s ease-in-out infinite 0.5s;
+}
+
+.floating-box {
+  animation: floatCard 5s ease-in-out infinite;
+}
+
+/* Animation เคลื่อนที่สำหรับปุ่ม */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Animation เคลื่อนที่ช้าๆ สำหรับการ์ดหลัก */
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
+}
+
+/* 7. Utilities สเปซและแบดจ์ตกแต่ง */
+.heart-badge {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  display: inline-block;
+  animation: pulseHeart 2s infinite ease-in-out;
+}
+
+@keyframes pulseHeart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
