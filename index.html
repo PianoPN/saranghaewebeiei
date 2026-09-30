@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เข้าสู่ระบบความทรงจำของเรา 💗</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <main class="page-container">
+    <div class="card floating-box text-center">
+      <div class="heart-badge">💖</div>
+      <h2 id="auth-title">สมัครเป็นแฟนสุดน่ารัก</h2>
+      <p id="auth-subtitle">กรอกอีเมลและรหัสผ่านเพื่อเข้าสู่พื้นที่ความรักของเรา</p>
+
+      <form id="auth-form" class="auth-form">
+        <div class="form-group">
+          <input type="email" id="auth-email" placeholder="อีเมลของคุณ (เช่น love@couple.com)" required />
+        </div>
+        <div class="form-group">
+          <input type="password" id="auth-password" minlength="6" placeholder="รหัสผ่าน (อย่างน้อย 6 ตัว)" required />
+        </div>
+        
+        <div id="auth-error" class="error-msg"></div>
+
+        <button type="submit" id="btn-auth-submit" class="btn btn-primary float-anim-slow">
+          สมัครสมาชิกแฟน 🌸
+        </button>
+      </form>
+
+      <div class="auth-toggle">
+        <span id="toggle-text">มีบัญชีแล้วใช่ไหม?</span>
+        <button id="btn-toggle-auth" type="button" class="btn-link">เข้าสู่ระบบ</button>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
